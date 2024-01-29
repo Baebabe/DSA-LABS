@@ -1,5 +1,7 @@
+
 #include <iostream>
 using namespace std;
+
 class Static_List
 {
 public:
@@ -9,7 +11,7 @@ public:
         int next;
     };
     Node *nodes;
-    int avail, head, tail, size;
+    int avail, head, tail;
 
     Static_List(int capacity)
     {
@@ -42,8 +44,6 @@ public:
         {
             tail = new_node;
         }
-
-        ++size;
     }
 
     void insertAtEnd(int value)
@@ -65,7 +65,6 @@ public:
             nodes[tail].next = new_node;
             tail = new_node;
         }
-        ++size;
     }
 
     void deleteFromBeginning()
@@ -86,8 +85,6 @@ public:
         {
             tail = -1;
         }
-
-        --size;
         cout << "Deleted node's value: " << value << '\n';
     }
 
@@ -99,6 +96,7 @@ public:
         }
         int value = nodes[tail].value;
         int to_del = tail;
+        // Single node case
         if (head == tail)
         {
             head = tail = -1;
@@ -116,17 +114,11 @@ public:
         nodes[to_del].next = avail;
         avail = to_del;
 
-        --size;
         cout << "Deleted node's value: " << value << '\n';
     }
 
     void insert_after(int idx, int value)
     {
-        if (idx < 0 || idx >= size)
-        {
-            return;
-        }
-
         if (avail == -1)
         {
             return;
@@ -143,13 +135,11 @@ public:
         {
             tail = new_node;
         }
-
-        ++size;
     }
 
     void del_after(int idx)
     {
-        if (idx < 0 || idx >= size || nodes[idx].next == -1)
+        if (nodes[idx].next == -1)
         {
             return;
         }
@@ -164,8 +154,6 @@ public:
         {
             tail = idx;
         }
-
-        --size;
     }
 
     void print()
