@@ -25,18 +25,12 @@ public:
         nodes[capacity - 1].next = -1;
     }
 
-    bool empty()
-    {
-        return head == -1;
-    }
-
     void enqueue(int value)
     {
         if (avail == -1)
         {
             return;
         }
-
         int new_node = avail;
         avail = nodes[avail].next;
 
@@ -60,19 +54,12 @@ public:
         {
             return -1;
         }
-
         int value = nodes[head].value;
         int to_del = head;
         head = nodes[head].next;
 
         nodes[to_del].next = avail;
         avail = to_del;
-
-        if (head == -1)
-        {
-            tail = -1;
-        }
-
         return value;
     }
 };
