@@ -1,0 +1,1 @@
+(rear == (front-1)%(size-1)
