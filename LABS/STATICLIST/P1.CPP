@@ -80,11 +80,6 @@ public:
 
         nodes[to_del].next = avail;
         avail = to_del;
-
-        if (head == -1)
-        {
-            tail = -1;
-        }
         cout << "Deleted node's value: " << value << '\n';
     }
 
