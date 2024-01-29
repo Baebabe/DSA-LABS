@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-class List
+class Static_List
 {
 public:
     struct Node
@@ -11,7 +11,7 @@ public:
     Node *nodes;
     int avail, head, tail, size;
 
-    List(int capacity)
+    Static_List(int capacity)
     {
         nodes = new Node[capacity];
         avail = 0;
@@ -188,7 +188,7 @@ public:
 
 int main()
 {
-    List list(10);
+    Static_List list(10);
     list.insertAtBeginning(6);
     list.insertAtEnd(1);
     list.insert_after(1, 5);
