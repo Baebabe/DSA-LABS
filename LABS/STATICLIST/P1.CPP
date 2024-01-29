@@ -138,7 +138,7 @@ public:
         {
             return;
         }
-
+        
         int to_del = nodes[idx].next;
         nodes[idx].next = nodes[to_del].next;
 
