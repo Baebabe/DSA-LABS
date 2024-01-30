@@ -49,7 +49,7 @@ void insertbeforevalue(Node *&head, Node *&tail, int value, int d)
     }
     if (temp == NULL)
     {
-        insertattail(tail, d);
+        cout<<"error";
         return;
     }
     Node *Nodetoinsert = new Node(d);
@@ -101,7 +101,7 @@ void deletefromend(Node *&head)
 }
 
 void deletebeforevalue(Node *&head, int value)
-{
+{//for head
     if (head->next->data == value)
     {
         Node *temp = head;
@@ -110,6 +110,7 @@ void deletebeforevalue(Node *&head, int value)
         temp->next = NULL;
         delete temp;
     }
+    //for after value
     else
     {
         Node *before = NULL;
@@ -119,10 +120,10 @@ void deletebeforevalue(Node *&head, int value)
             before = curr;
             curr = curr->next;
         }
-        if (curr->next == nullptr)
-        {
-            return;
-        }
+        // if (curr->next == NULL)
+        // {
+        //     return;
+        // }
         curr->prev = NULL;
         before->next = curr->next;
         curr->next->prev = before;
