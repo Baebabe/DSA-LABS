@@ -97,7 +97,7 @@ public:
             head = tail = -1;
         }
         else
-        {
+        { 
             int curr = head;
             while (nodes[curr].next != tail)
             {
