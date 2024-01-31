@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
-int factorial(int n, int num = 1)
+
+
+int tail_factorial(int n, int num = 1)
 {
     if (n == 0)
     {
@@ -8,10 +10,10 @@ int factorial(int n, int num = 1)
     }
     else
     {
-        return factorial(n - 1, n * num);
+        return tail_factorial(n - 1, n * num);
     }
 }
-int fibonacci(int n, int a = 0, int b = 1)
+int tail_fibonacci(int n, int a = 0, int b = 1)
 {
     if (n == 0)
     {
@@ -21,7 +23,13 @@ int fibonacci(int n, int a = 0, int b = 1)
     {
         return b;
     }
-    return fibonacci(n - 1, b, a + b);
+    return tail_fibonacci(n - 1, b, a + b);
+}
+int factorial(int num){
+    return tail_factorial(num);
+}
+int fibonacci(int num){
+    return tail_fibonacci(num);
 }
 int main()
 {
